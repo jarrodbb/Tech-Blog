@@ -19,7 +19,8 @@ Comments.init(
     },
     date: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_username: {
       type: DataTypes.STRING,

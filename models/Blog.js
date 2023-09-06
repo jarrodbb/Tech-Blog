@@ -22,7 +22,8 @@ Blog.init(
     },
     date: {
       type: DataTypes.DATEONLY,
-      allowNull: true,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,

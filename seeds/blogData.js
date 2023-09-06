@@ -11,7 +11,7 @@ const blogData = [
   },
   {
     title: "Understanding the dark arts of Github",
-    desciption:
+    description:
       "Only a select few understand what's actually happening. It's magic",
     date: "2023-06-06",
     user_id: 2,

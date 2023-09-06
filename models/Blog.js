@@ -14,11 +14,11 @@ Blog.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     date: {
       type: DataTypes.DATEONLY,
@@ -26,18 +26,10 @@ Blog.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-    
+
       references: {
         model: "user",
         key: "user_id",
-      },
-    },
-    comment_id: {
-      type: DataTypes.INTEGER,
-     
-      references: {
-        model: "comments",
-        key: "comment_id",
       },
     },
   },

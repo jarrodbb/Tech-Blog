@@ -15,6 +15,7 @@ Comments.init(
     comment_description: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "description",
     },
     date: {
       type: DataTypes.DATEONLY,
@@ -22,11 +23,9 @@ Comments.init(
     },
     user_username: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
-
       references: {
         model: "user",
         key: "user_id",
@@ -34,7 +33,6 @@ Comments.init(
     },
     blog_id: {
       type: DataTypes.INTEGER,
-
       references: {
         model: "blog",
         key: "blog_id",

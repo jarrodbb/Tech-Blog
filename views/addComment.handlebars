@@ -1,0 +1,48 @@
+<h1>
+  <a href="/">The Tech Blog</a>
+</h1>
+
+<div class="row mb-4">
+  <div class="col-md-5">
+    <h2>
+
+      {{title}}
+    </h2>
+    <p>
+
+      <p>Created by {{user.username}} on {{date}}</p>
+
+    </p>
+
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{description}}
+    </p>
+  </div>
+</div>
+
+<form class="form new-comment-form space-y-4">
+  <div class="space-y-2">
+    <label
+      for="comment"
+      class="block text-sm font-medium text-gray-700"
+    >Comment:</label>
+    <input
+      class="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-500 focus:outline-none"
+      type="textarea"
+      id="comment"
+    />
+  </div>
+
+  <div class="flex items-center justify-between">
+    <button
+      class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+      type="submit"
+      data-id="{{blog_id}}"
+      data-name="{{user.username}}"
+    >Submit</button>
+  </div>
+</form>
+
+<script src="./js/addComment.js"></script>

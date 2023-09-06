@@ -10,7 +10,7 @@ router.post("/", withAuth, async (req, res) => {
       comment_description: req.body.comment_description,
       date: req.body.date,
       user_username: req.body.user_username,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
       blog_id: req.body.blog_id,
     });
 

@@ -1,0 +1,22 @@
+<h1>
+
+  <a href="/dashboard">Dashboard</a>
+</h1>
+
+<h1>{{username}}</h1>
+
+{{#if blogs.length}}
+  <h2><strong>Blogs</strong></h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 delete-now">
+    {{#each blogs as |blog|}}
+      <div class="bg-white rounded-lg p-4 shadow-md">
+        <h4 class="text-xl font-semibold mb-2">{{blog.title}}</h4>
+        <h4 class="text-xl font-semibold mb-2">
+          {{blog.description}}</h4>
+
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p class="text-lg">No Blogs.</p>
+{{/if}}

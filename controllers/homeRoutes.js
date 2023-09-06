@@ -27,4 +27,65 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/login", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
+    return;
+  }
+
+  res.render("login");
+});
+
+router.get("/signup", async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/dashboard");
+    return;
+  }
+
+  res.render("signup");
+});
+
+router.get("/comment-add/:id", withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    console.log(blog);
+
+    res.render("addComment", {
+      ...blog,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    const userDate = await User.findByPk(req.session.user_id, {
+      include: [{ model: Blog }],
+    });
+
+    const user = userDate.get({ plain: true });
+
+    res.render("dashboard", {
+      ...user,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

@@ -10,7 +10,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 delete-now">
     {{#each blogs as |blog|}}
       <div class="bg-white rounded-lg p-4 shadow-md">
-        <h4 class="text-xl font-semibold mb-2">{{blog.title}}</h4>
+        <h4 class="text-xl font-semibold mb-2"> <a href="/blog/{{blog_id}}">{{blog.title}}</a></h4>
         <h4 class="text-xl font-semibold mb-2">
           {{blog.description}}</h4>
 
@@ -20,3 +20,16 @@
 {{else}}
   <p class="text-lg">No Blogs.</p>
 {{/if}}
+
+<div class="mb-4 signup-now">
+  <a href="/createblog">ADD BLOG</a>
+</div>
+
+{{! <div class="create-blog">
+  <button
+   type="submit"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" data-id="blog"
+  >
+    + Create Blog
+  </button>
+</div> }}

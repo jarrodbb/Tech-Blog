@@ -10,7 +10,7 @@ router.post("/", withAuth, async (req, res) => {
       title: req.body.title,
       description: req.body.description,
       date: req.body.date,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
     });
 
     req.session.save(() => {
@@ -26,6 +26,22 @@ router.post("/", withAuth, async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
+      include: [{ model: User, attributes: ["username"] }],
+    });
+    if (!blogData) {
+      res.status(404).json({ message: "No blog found !" });
+      return;
+    }
+
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User, attributes: ["username"] }],
     });
     if (!blogData) {

@@ -1,26 +1,93 @@
-const editBlog = () => {
-  const currentRoute = document.location;
-  const address = currentRoute.href;
-  const addressArray = address.split("/");
-  const blogId = addressArray[addressArray.length - 1];
-  console.log(blogId);
+const descriptionInput = document.getElementById("content");
+const titleInput = document.getElementById("title");
 
-  //   const response = await fetch("/api/blog", {
-  //     method: "GET",
-  //     body: JSON.stringify({}),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
+const currentRoute = document.location;
+const address = currentRoute.href;
+const addressArray = address.split("/");
+const blogId = addressArray[addressArray.length - 1];
+console.log(blogId);
 
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } else {
-  //     alert("Failed to create project");
-  //   }
+const editBlog = async () => {
+  // const currentRoute = document.location;
+  // const address = currentRoute.href;
+  // const addressArray = address.split("/");
+  // const blogId = addressArray[addressArray.length - 1];
+  // console.log(blogId);
+
+  const response = await fetch(`/api/blog/${blogId}`, {
+    method: "GET",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    descriptionInput.textContent = `${data.description}`;
+    titleInput.textContent = `${data.title}`;
+    console.log(data);
+  } else {
+    alert("Failed to create project");
+  }
 };
 
 editBlog();
-// const title = document.querySelector("#title").value;
-// const description = document.querySelector("#content").value.trim();
+
+const updateBlogInfo = async (event) => {
+  event.preventDefault();
+
+  const date = new Date();
+
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+
+  const newDate = `${year}-${month}-${day}`;
+  const title = document.querySelector("#title").value.trim();
+  const description = document.querySelector("#content").value.trim();
+
+  if (title && description) {
+    const response = await fetch(`/api/blog/${blogId}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        title,
+        description,
+        newDate,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      return document.location.replace("/dashboard");
+    } else {
+      alert("Failed to update");
+    }
+  }
+};
+
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+
+    const response = await fetch(`/api/blog/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    } else {
+      alert("Failed to delete ");
+    }
+  }
+};
+
+document
+  .querySelector(".edit-blog-form")
+  .addEventListener("submit", updateBlogInfo);
+
+document
+  .querySelector(".delete-now")
+  .addEventListener("click", delButtonHandler);

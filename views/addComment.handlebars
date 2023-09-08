@@ -22,11 +22,7 @@
   </div>
 </div>
 
-<form
-  class="new-comment-form"
-  data-id="{{blog_id}}"
-  data-name="{{user.username}}"
->
+<form class="new-comment-form" data-id="{{blog_id}}" data-name="">
   <div
     class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
   >
@@ -55,7 +51,7 @@
 <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">See all comments for
   this post
   <a
-    href="#"
+    href="/blog/comments/{{blog_id}}"
     class="text-blue-600 dark:text-blue-500 hover:underline"
   >Here</a>.</p>
 

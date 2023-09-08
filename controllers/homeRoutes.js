@@ -119,4 +119,28 @@ router.get("/blog/:id", withAuth, async (req, res) => {
   }
 });
 
+router.get("/blog/comments/:id", withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comments,
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    console.log(blog);
+
+    res.render("blogWithAllComments", {
+      ...blog,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

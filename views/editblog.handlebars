@@ -1,19 +1,16 @@
-<form class="new-blog-form">
+<form class="edit-blog-form">
   <div
     class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
   >
     <div>
-      <label
-        for="title"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Title</label>
-      <input
+
+      <textarea
         type="text"
         id="title"
         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Title"
+        text="Title"
         required
-      />
+      ></textarea>
     </div>
     <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
       <label for="comment" class="sr-only">content</label>
@@ -21,7 +18,7 @@
         id="content"
         rows="4"
         class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-        placeholder="Blog away..."
+        text="Blog away..."
         required
       ></textarea>
     </div>
@@ -32,11 +29,17 @@
         type="submit"
         class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
       >
-        Create Blog
+        Update Blog
       </button>
 
     </div>
   </div>
 </form>
+<div class="flex justify-end delete-now">
+  <button
+    class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition-transform transform hover:scale-105"
+    data-id="{{blog_id}}"
+  >DELETE</button>
+</div>
 
-<script src="./js/editBlog.js"></script> 
+<script src="/js/editBlog.js"></script>

@@ -1,3 +1,33 @@
+const targetUsername = document.querySelector("data-name");
+
+const userMakingComment = async () => {
+  // const currentRoute = document.location;
+  // const address = currentRoute.href;
+  // const addressArray = address.split("/");
+  // const blogId = addressArray[addressArray.length - 1];
+  // console.log(blogId);
+
+  const response = await fetch("/api/user/all", {
+    method: "GET",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    console.log(data.username);
+
+    targetUsername.setAttribute("data-name", data.username);
+    // console.log(targetUsername)
+  } else {
+    alert("Failed");
+  }
+};
+userMakingComment();
+
 const newComment = async (event) => {
   event.preventDefault();
   if (event.target.hasAttribute("data-id")) {

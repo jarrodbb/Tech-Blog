@@ -10,25 +10,28 @@
   </head>
 
   <body>
-    <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
+    <div class="flex-column justify-space-around ≈">
+      <header
+        class="display-flex justify-space-between align-center p-2 bg-orange-200"
+      >
 
-        <nav>
+        <nav class="bg-orange-200 border-gray-200 dark:bg-gray-900">
+          <div>
+            {{#if logged_in}}
+              <a href="/">Home</a>
+              |
+              <a href="/dashboard">Dashboard</a>
+              |
+              <button class="no-button" id="logout">logout</button>
+            {{else}}
+              <a href="/">Home</a>
+              |
+              <a href="/dashboard">Dashboard</a>
+              |
+              <a href="/login">login</a>
 
-          {{#if logged_in}}
-            <a href="/">Home</a>
-            |
-            <a href="/dashboard">Dashboard</a>
-            |
-            <button class="no-button" id="logout">logout</button>
-          {{else}}
-            <a href="/">Home</a>
-            |
-            <a href="/dashboard">Dashboard</a>
-            |
-            <a href="/login">login</a>
-
-          {{/if}}
+            {{/if}}
+          </div>
         </nav>
       </header>
       <main class="container container-fluid mt-5">

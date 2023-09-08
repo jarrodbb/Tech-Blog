@@ -72,6 +72,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/all", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: { user_id: req.session.user_id },
+    });
+
+    req.session.save(() => {
+      console.log(req.session.user_id);
+
+      req.session.logged_in = true;
+
+      res.json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {

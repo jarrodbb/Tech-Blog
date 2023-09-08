@@ -39,7 +39,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [{ model: User, attributes: ["username"] }],
@@ -54,5 +54,62 @@ router.get("/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.update(
+      {
+        // approved: req.body.approved,
+        title: req.body.title,
+        description: req.body.description,
+        date: req.body.newDate,
+      },
+      {
+        where: {
+          blog_id: req.params.id,
+        },
+      }
+    );
+
+    if (!blogData[0]) {
+      res.status(404).json({ message: "No Blog with this id" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.logged_in = true;
+
+      res.json({ message: "updated!" });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        blog_id: req.params.id,
+      },
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog found with this id!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.logged_in = true;
+
+      res.json({ message: 'deleted!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

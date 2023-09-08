@@ -1,4 +1,5 @@
-const targetUsername = document.querySelector("data-name");
+const targetUsername = document.querySelector(".new-comment-form");
+console.log(targetUsername);
 
 const userMakingComment = async () => {
   // const currentRoute = document.location;
@@ -50,7 +51,7 @@ const newComment = async (event) => {
         });
 
         if (response.ok) {
-          document.location.replace("/");
+          document.location.replace(`/blogWithComment/${blog_id}`);
         } else {
           alert("Failed to update ");
         }

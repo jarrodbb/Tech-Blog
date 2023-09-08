@@ -16,7 +16,10 @@
       >
 
         <nav class="bg-orange-200 border-gray-200 dark:bg-gray-900">
-          <div>
+          <div
+            class="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4"
+          >
+
             {{#if logged_in}}
               <a href="/">Home</a>
               |
@@ -34,10 +37,13 @@
           </div>
         </nav>
       </header>
-      <main class="container container-fluid mt-5">
+      <main class="">
 
         {{{body}}}
       </main>
+      {{#if logged_in}}
+        <script src="/js/logout.js"></script>
+      {{/if}}
       <footer>
 
       </footer>

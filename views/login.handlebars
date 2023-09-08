@@ -1,12 +1,18 @@
-<h1>
-  <a href="/">The Tech Blog</a>
-</h1>
+<div class="flex mb-4 bg-orange-200">
+  <div class="flex1 bg-gray-500 h-12 p-2">
+    <h1>
+      <a href="/">The Tech Blog</a>
+    </h1>
+  </div>
+</div>
 
-<div class="container mx-auto py-8">
-  <div class="w-full md:w-1/2 mx-auto">
-    <h2 class="text-2xl font-semibold mb-4">User Login</h2>
+<div class="mx-auto py-8">
+  <div class="w-full md:w-1/2 mx-auto align-center">
+    <h2
+      class="text-2xl font-semibold border-solid border-2 border-slate-400 p-2 text-teal-50 bg-slate-400"
+    >User Login</h2>
 
-    <form class="w-full login-form">
+    <form class="w-full login-form border-solid border-2 border-slate-400 p-2">
       <div class="mb-4">
         <label
           for="username-login"
@@ -15,7 +21,7 @@
         <input
           type="text"
           id="username-login"
-          class="form-input w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div class="mb-4">
@@ -26,14 +32,14 @@
         <input
           type="password"
           id="password-login"
-          class="form-input w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
 
       <div class="mb-4">
         <button
           type="submit"
-          class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 login-button"
+          class="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800 login-button"
         >
           Login
         </button>

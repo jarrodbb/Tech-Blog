@@ -25,8 +25,12 @@ const editBlog = async () => {
   if (response.ok) {
     const data = await response.json();
     descriptionInput.textContent = `${data.description}`;
+    // const currentBlogDescription = `${data.description}`;
     titleInput.textContent = `${data.title}`;
     console.log(data);
+    // if (descriptionInput.textContent != currentBlogDescription) {
+    //   document.querySelector("form button").classList.remove("display-none");
+    // }
   } else {
     alert("Failed to create project");
   }
@@ -63,7 +67,7 @@ const updateBlogInfo = async (event) => {
     if (response.ok) {
       return document.location.replace("/dashboard");
     } else {
-      alert("Failed to update");
+      alert("Please make changes to the Blog before submitting");
     }
   }
 };

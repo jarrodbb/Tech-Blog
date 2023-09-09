@@ -1,16 +1,89 @@
-<h1>
+<div class="px-6">
+  <a
+    href="/dashboard"
+    class="px-6 inline-flex items-center text-black bg-amber-200 hover:bg-amber-400 focus:ring-4 focus:ring-green-300 font-extrabold rounded-lg text-4xl px-5 py-2.5 mr-2 mb-2 tech-blog-button"
+  >Dashboard</a>
+</div>
 
-  <a href="/dashboard">Dashboard</a>
-</h1>
-
-<h1>{{username}}</h1>
+<div class="p-6">
+  <h1
+    class="block bg-gradient-to-tr text-gray-500 bg-clip-text text-5xl font-semibold leading-tight tracking-normal antialiased user-font"
+  >
+    {{username}}
+  </h1>
+</div>
 
 {{#if blogs.length}}
-  <h2><strong>Blogs</strong></h2>
+
+  {{#each blogs as |blog|}}
+    <div class="p-6">
+      <div
+        class="p-6 border border-gray-200 rounded-lg shadow bg-fuchsia-100 dark:border-gray-700"
+      >
+        <div class="flow-root bg-fuchsia-50">
+          <div>
+            <a href="/blog/{{blog_id}}"><h5
+                class="float-left mb-2 text-2xl font-bold tracking-tight text-gray-900"
+              >{{blog.title}}</h5></a>
+          </div>
+          <div class="bg-fuchsia-50">
+            <h4 class="float-right mb-3 font-light text-gray-700">Created on
+              {{date}}</h4>
+          </div>
+        </div>
+        <p class="my-3 font-normal text-gray-700 bg-fuchsia-100">
+          {{blog.description}}</p>
+        <a
+          href="/blog/{{blog_id}}"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Edit Blog
+          <svg
+            class="w-3.5 h-3.5 ml-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  {{/each}}
+
+{{else}}
+  <div class="p-6">
+    <p class="text-lg">No Blogs yet</p>
+  </div>
+{{/if}}
+
+<div class="px-6">
+  <a
+    href="/createblog"
+    class="px-6 inline-flex items-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+  >ADD A BLOG</a>
+</div>
+
+{{! <div
+  class="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+>
+  <a href="/createblog">ADD BLOG</a>
+</div> }}
+
+{{!-- {{#if blogs.length}}
+
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 delete-now">
     {{#each blogs as |blog|}}
       <div class="bg-white rounded-lg p-4 shadow-md">
-        <h4 class="text-xl font-semibold mb-2"> <a href="/blog/{{blog_id}}">{{blog.title}}</a></h4>
+        <h4 class="text-xl font-semibold mb-2">
+          <a href="/blog/{{blog_id}}">{{blog.title}}</a></h4>
         <h4 class="text-xl font-semibold mb-2">
           {{blog.description}}</h4>
 
@@ -23,13 +96,4 @@
 
 <div class="mb-4 signup-now">
   <a href="/createblog">ADD BLOG</a>
-</div>
-
-{{! <div class="create-blog">
-  <button
-   type="submit"
-    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" data-id="blog"
-  >
-    + Create Blog
-  </button>
-</div> }}
+</div> --}}

@@ -1,7 +1,7 @@
 <div class="px-6">
   <a
     href="/"
-    class="px-6 inline-flex items-center text-black bg-amber-200 hover:bg-amber-400 focus:ring-4 focus:ring-green-300 font-extrabold rounded-lg text-4xl px-5 py-2.5 mr-2 mb-2 tech-blog-button"
+    class="px-6 shadow-amber-300/50 inline-flex items-center text-black bg-amber-200 hover:bg-amber-400 focus:ring-4 focus:ring-green-300 font-extrabold rounded-lg text-4xl px-5 py-2.5 mr-2 mb-2 tech-blog-button"
   >The Tech Blog</a>
 </div>
 
@@ -25,24 +25,33 @@
 </div>
 
 {{#if comments.length}}
+  <div class="delete-now">
+    {{#each comments as |comment|}}
 
-  {{#each comments as |comment|}}
-    <div class="p-6">
-      <div
-        class="p-6 border border-gray-200 rounded-lg shadow bg-indigo-100 dark:border-gray-700"
-      >
-        <h4
-          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 bg-indigo-50"
-        >Comment by {{comment.user_username}}</h4>
-        <h4 class="mb-3 font-light text-gray-700 bg-indigo-100">Created on
-          {{comment.date}}</h4>
-        <p class="mb-3 font-normal text-gray-700 bg-indigo-100">
-          {{comment.comment_description}}</p>
-
+      <div class="p-6">
+        <div
+          class="p-6 border border-gray-200 rounded-lg shadow bg-indigo-100 dark:border-gray-700"
+        >
+          <h4
+            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 bg-indigo-50"
+          >Comment by {{comment.user_username}}</h4>
+          <h4 class="mb-3 font-light text-gray-700 bg-indigo-100">Created on
+            {{comment.date}}</h4>
+          <p class="mb-3 font-normal text-gray-700 bg-indigo-100">
+            {{comment.comment_description}}</p>
+          <div class="">
+            <button
+              id="test"
+              class="w-full display-none bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition-transform transform hover:scale-105"
+              data-id="{{comment.comment_id}}"
+            >DELETE</button>
+          </div>
+        </div>
       </div>
-    </div>
-  {{/each}}
-
+    {{/each}}
+  </div>
 {{else}}
   <p class="text-lg">Your comments will appear here</p>
 {{/if}}
+
+<script src="/js/deleteComment.js"></script>

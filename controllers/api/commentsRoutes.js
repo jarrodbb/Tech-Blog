@@ -35,4 +35,28 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    const commentData = await Comments.destroy({
+      where: {
+        comment_id: req.params.id,
+      },
+    });
+
+    if (!commentData) {
+      res.status(404).json({ message: "No blog found with this id!" });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.logged_in = true;
+
+      res.json({ message: "deleted!" });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

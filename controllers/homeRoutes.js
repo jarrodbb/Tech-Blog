@@ -126,6 +126,7 @@ router.get("/blog/comments/:id", withAuth, async (req, res) => {
         {
           model: Comments,
         },
+        { model: User },
       ],
     });
 
@@ -151,6 +152,7 @@ router.get("/blogWithComment/:id", withAuth, async (req, res) => {
           model: Comments,
           where: { user_id: req.session.user_id },
         },
+        { model: User },
       ],
     });
 

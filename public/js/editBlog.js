@@ -8,12 +8,6 @@ const blogId = addressArray[addressArray.length - 1];
 console.log(blogId);
 
 const editBlog = async () => {
-  // const currentRoute = document.location;
-  // const address = currentRoute.href;
-  // const addressArray = address.split("/");
-  // const blogId = addressArray[addressArray.length - 1];
-  // console.log(blogId);
-
   const response = await fetch(`/api/blog/${blogId}`, {
     method: "GET",
 

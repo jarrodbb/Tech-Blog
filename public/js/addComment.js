@@ -53,16 +53,9 @@ const newComment = async (event) => {
   }
 };
 
-const viewYourComments = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-    document.location.replace(`/blogWithComment/${id}`);
-  }
-};
 
-document
-  .querySelector(".view-all-now")
-  .addEventListener("click", viewYourComments);
+
+
 
 document
   .querySelector(".new-comment-form")

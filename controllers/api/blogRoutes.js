@@ -87,7 +87,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.destroy({
       where: {
@@ -96,14 +96,14 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!blogData) {
-      res.status(404).json({ message: 'No blog found with this id!' });
+      res.status(404).json({ message: "No blog found with this id!" });
       return;
     }
 
     req.session.save(() => {
       req.session.logged_in = true;
 
-      res.json({ message: 'deleted!' });
+      res.json({ message: "deleted!" });
     });
   } catch (err) {
     console.log(err);
@@ -111,5 +111,21 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get("/comment/:id", withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [{ model: User, attributes: ["username"] }],
+    });
+    if (!blogData) {
+      res.status(404).json({ message: "No blog found !" });
+      return;
+    }
+
+    res.status(200).json(blogData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;

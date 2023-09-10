@@ -100,8 +100,11 @@ The Tech-Blog is a deployed application please see below link to view the site.
 ### Post with new comment
 <img width="1700" alt="Screenshot 2023-09-10 at 12 54 16 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/bedcc3e7-a705-4dd3-924b-effb0fbc6595">
 
-### Click comment button for the blog post. To view All comments. Click "See all comments for this post Here."
+### To view All comments. Click "See all comments for this post Here."
 ![Screenshot 2023-09-10 at 4 02 09 pm](https://github.com/jarrodbb/Tech-Blog/assets/132813348/4731416b-1b42-461e-a0ab-34c489402d79)
+
+### To view YOUR comments. Click "View all your comments for this post."
+![Screenshot 2023-09-10 at 4 02 09 pm](https://github.com/jarrodbb/Tech-Blog/assets/132813348/fc2e9d8f-77f3-4982-9306-31c8f554a402)
 
 ### All comments for that Blog
 <img width="1692" alt="Screenshot 2023-09-10 at 12 56 14 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/72cbae21-9581-44af-98de-1d9fdcc2827c">

@@ -2,12 +2,6 @@ const targetUsername = document.querySelector(".new-comment-form");
 console.log(targetUsername);
 
 const userMakingComment = async () => {
-  // const currentRoute = document.location;
-  // const address = currentRoute.href;
-  // const addressArray = address.split("/");
-  // const blogId = addressArray[addressArray.length - 1];
-  // console.log(blogId);
-
   const response = await fetch("/api/user/all", {
     method: "GET",
 
@@ -22,7 +16,6 @@ const userMakingComment = async () => {
     console.log(data.username);
 
     targetUsername.setAttribute("data-name", data.username);
-    // console.log(targetUsername)
   } else {
     alert("Failed");
   }
@@ -59,6 +52,17 @@ const newComment = async (event) => {
     }
   }
 };
+
+const viewYourComments = async (event) => {
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+    document.location.replace(`/blogWithComment/${id}`);
+  }
+};
+
+document
+  .querySelector(".view-all-now")
+  .addEventListener("click", viewYourComments);
 
 document
   .querySelector(".new-comment-form")

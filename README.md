@@ -22,8 +22,6 @@ The Tech-Blog is a deployed application please see below link to view the site.
 
 [Tech-Blog](https://understanding-tech-blog-eefe5bbb75c4.herokuapp.com/)
 
-![Untitled_ Sep 10, 2023 12_27 PM (3)](https://github.com/jarrodbb/Tech-Blog/assets/132813348/ef87dec4-997a-4f5c-8ae2-0a2268eebf9d)
-
 
 ### MVC
 

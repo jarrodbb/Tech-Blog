@@ -107,16 +107,16 @@ The Tech-Blog is a deployed application please see below link to view the site.
 <img width="1692" alt="Screenshot 2023-09-10 at 12 56 14 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/72cbae21-9581-44af-98de-1d9fdcc2827c">
 
 ### Click Add a new comment
-<img width="1687" alt="Screenshot 2023-09-10 at 1 19 37 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/c14b064a-ff52-4e70-ae5d-3f555a8b1dca">
+<img width="1695" alt="Screenshot 2023-09-10 at 1 32 05 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/b3822cdc-1905-44bf-8b11-09dbadefa226">
 
 ### Post with new comment (All comments made by the logged in user are display)
-<img width="1682" alt="Screenshot 2023-09-10 at 1 21 03 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/7fa6bf76-52d9-44e9-a6cf-be83b38024b4">
+<img width="1691" alt="Screenshot 2023-09-10 at 1 32 22 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/7ad102c0-28b2-436c-8307-8bad5629bd80">
 
 ### Delete Comment
-<img width="1705" alt="Screenshot 2023-09-10 at 1 21 18 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/5c98a486-672c-42bb-a5c3-b1cdc75d5378">
+<img width="1700" alt="Screenshot 2023-09-10 at 1 33 05 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/968c6d34-f79e-4352-92f0-167673473aed">
 
-### When viewing All comments for a blog post, the delete comment will be removed. The button to add a comment is displayed at the bottom
-<img width="1690" alt="Screenshot 2023-09-10 at 1 21 48 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/4ed3e6f1-a44f-4dac-ae7f-1e1ab7d5f09d">
+### When viewing All comments for a blog post, the deleted comment will be removed. The button to add a comment is displayed at the bottom
+<img width="1704" alt="Screenshot 2023-09-10 at 1 34 04 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/18d04aa1-5499-43d5-b16f-2ac2d6b3f86b">
 
 ### Update Blog post created by logged in user via Dashboard
 <img width="1703" alt="Screenshot 2023-09-10 at 12 57 00 pm" src="https://github.com/jarrodbb/Tech-Blog/assets/132813348/805bde02-e52f-4617-9c58-715bed4d3ea6">

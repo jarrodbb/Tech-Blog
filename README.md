@@ -30,9 +30,13 @@ The Tech-Blog is a deployed application please see below link to view the site.
 
 [Tech-Blog](https://understanding-tech-blog-eefe5bbb75c4.herokuapp.com/)
 
+### Demo
+
 [GIF](https://github.com/jarrodbb/Tech-Blog/blob/main/assets/Untitled_%20Sep%2010%2C%202023%206_25%20PM.gif)
 
 [Mp4](https://github.com/jarrodbb/Tech-Blog/blob/main/assets/Untitled_%20Sep%2010%2C%202023%206_25%20PM.mp4)
+
+[YouTube](https://youtu.be/ekiEGqE_ccc)
 
 ### MVC
 

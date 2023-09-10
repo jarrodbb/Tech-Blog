@@ -32,6 +32,8 @@ The Tech-Blog is a deployed application please see below link to view the site.
 
 [GIF](https://github.com/jarrodbb/Tech-Blog/blob/main/assets/Untitled_%20Sep%2010%2C%202023%206_25%20PM.gif)
 
+[Mp4](https://github.com/jarrodbb/Tech-Blog/blob/main/assets/Untitled_%20Sep%2010%2C%202023%206_25%20PM.mp4)
+
 ### MVC
 
 [Models](https://github.com/jarrodbb/Tech-Blog/tree/main/models)

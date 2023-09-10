@@ -9,16 +9,20 @@
   <div
     class="p-6 bg-fuchsia-100 border border-gray-200 rounded-lg shadow dark:border-gray-700"
   >
-
-    <h5
-      class="mb-2 text-2xl font-bold tracking-tight text-gray-900 bg-fuchsia-50"
-    >{{title}}</h5>
-
-    <h1 class="mb-3 font-light text-gray-700 bg-fuchsia-100">Created by
-      {{comment.user_username}}
-      on
-      {{date}}</h1>
-    <p class="mb-3 font-normal text-gray-700 bg-fuchsia-100">
+    <div class="flow-root bg-fuchsia-50">
+      <div>
+        <h5
+          class="pl-2 float-left mb-2 text-2xl font-bold tracking-tight text-gray-900"
+        >{{title}}</h5>
+      </div>
+      <div>
+        <h1 class="pr-2 float-right mb-3 font-light text-gray-700">Created by
+          {{comment.user_username}}
+          on
+          {{date}}</h1>
+      </div>
+    </div>
+    <p class="pl-2 mb-3 font-normal text-gray-700 bg-fuchsia-100">
       {{description}}</p>
 
   </div>
@@ -32,17 +36,24 @@
         <div
           class="p-6 border border-gray-200 rounded-lg shadow bg-indigo-100 dark:border-gray-700"
         >
-          <h4
-            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 bg-indigo-50"
-          >Comment by {{comment.user_username}}</h4>
-          <h4 class="mb-3 font-light text-gray-700 bg-indigo-100">Created on
-            {{comment.date}}</h4>
-          <p class="mb-3 font-normal text-gray-700 bg-indigo-100">
+          <div class="flow-root bg-indigo-50">
+            <div>
+              <h4
+                class="pl-2 float-left mb-2 text-2xl font-bold tracking-tight text-gray-900"
+              >Comment by {{comment.user_username}}</h4>
+            </div>
+            <div>
+              <h4 class="pr-2 float-right mb-3 font-light text-gray-700">Created
+                on
+                {{comment.date}}</h4>
+            </div>
+          </div>
+          <p class="pl-2 mb-3 font-normal text-gray-700 bg-indigo-100">
             {{comment.comment_description}}</p>
           <div class="">
             <button
               id="test"
-              class="w-full display-none bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition-transform transform hover:scale-105"
+              class="pl-2 w-full display-none bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full shadow-md transition-transform transform hover:scale-105"
               data-id="{{comment.comment_id}}"
             >DELETE</button>
           </div>

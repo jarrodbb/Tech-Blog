@@ -1,13 +1,22 @@
+//Import from sequelize
 const { Model, DataTypes } = require("sequelize");
+
+//Import bcrypt for hashing passwords
 const bcrypt = require("bcrypt");
+
+//Import connection
 const sequelize = require("../config/connection");
 
+//Create new model
+//Include method for checking passwords
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+//Define User
+//Hooks used for hashing passwords when stored in the db
 User.init(
   {
     user_id: {
@@ -53,4 +62,5 @@ User.init(
   }
 );
 
+//Export
 module.exports = User;

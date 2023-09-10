@@ -1,10 +1,15 @@
+// Routes for users
+
+// Import from express
 const router = require("express").Router();
 
 //Import Models
 const { User, Blog } = require("../../models");
+
+// Import Authentication
 const withAuth = require("../../utils/auth");
 
-//New user
+//Route to create new user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
@@ -14,7 +19,9 @@ router.post("/", async (req, res) => {
     });
 
     req.session.save(() => {
+      //Save session id
       req.session.user_id = userData.user_id;
+      //Save as logged in
       req.session.logged_in = true;
 
       res.json(userData);
@@ -24,6 +31,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Router to get all users
 router.get("/", async (req, res) => {
   try {
     const userData = await User.findAll();
@@ -58,10 +66,11 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
+      //save session ID
       req.session.user_id = userData.user_id;
 
       console.log(req.session.user_id);
-
+      //Save as logged in
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
@@ -72,6 +81,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Router to get one user by session ID 
+// Requires authentication
 router.get("/all", withAuth, async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -80,7 +91,7 @@ router.get("/all", withAuth, async (req, res) => {
 
     req.session.save(() => {
       console.log(req.session.user_id);
-
+      // Save as logged in
       req.session.logged_in = true;
 
       res.json(userData);
@@ -90,6 +101,7 @@ router.get("/all", withAuth, async (req, res) => {
   }
 });
 
+//Get user by ID using req.params
 router.get("/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
@@ -106,6 +118,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//Router to log user out
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -116,4 +129,5 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// Export routers
 module.exports = router;

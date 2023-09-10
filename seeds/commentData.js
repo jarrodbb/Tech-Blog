@@ -1,6 +1,8 @@
-// seed Users
+// seed Comments
+//Import model
 const { Comments } = require("../models");
 
+//This application proved more successful when no seed data was included for the comments
 const commentData = [
   // {
   //   comment_id: 1,
@@ -30,4 +32,5 @@ const commentData = [
 
 const seedComment = () => Comments.bulkCreate(commentData);
 
+//Export
 module.exports = seedComment;

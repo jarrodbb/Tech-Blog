@@ -1,3 +1,4 @@
+// Function for logging in
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -14,7 +15,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
+      // If successful, redirect the browser to the Dashboard page
       document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
@@ -22,13 +23,9 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// const signUpHandler = () => {
-//   document.location.replace("/signup");
-// };
 
 // Event listener for login
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
 
-// document.querySelector(".signup-now").addEventListener("submit", signUpHandler);

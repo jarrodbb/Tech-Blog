@@ -1,10 +1,17 @@
+// Home routes
+
+// Import from express
 const router = require("express").Router();
 
 //Import Models
 const { User, Blog, Comments } = require("../models");
+
+// Import authentication
 const withAuth = require("../utils/auth");
 
 //Router to render the homepage
+//include Blogs and Users
+//Render homepage
 router.get("/", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
@@ -27,6 +34,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Router to render dashboard if logged in, else render login page
 router.get("/login", async (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
@@ -36,6 +44,7 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
+//Router to render signup page, else if logged in render signup page 
 router.get("/signup", async (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
@@ -45,6 +54,8 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
+// Router to get One blog and user
+// Renders "addComment" page
 router.get("/comment-add/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -70,6 +81,9 @@ router.get("/comment-add/:id", withAuth, async (req, res) => {
   }
 });
 
+// Router for Dashboard
+// Gets User by session ID and includes all their blogs
+// Renders Dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userDate = await User.findByPk(req.session.user_id, {
@@ -88,12 +102,15 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+//Router to render New Blog page
 router.get("/createblog", withAuth, async (req, res) => {
   res.render("newBlog", {
     logged_in: req.session.logged_in,
   });
 });
 
+//Router gets one Blog by req params and includes user
+// Renders page to edit blog
 router.get("/blog/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -119,6 +136,10 @@ router.get("/blog/:id", withAuth, async (req, res) => {
   }
 });
 
+// Router for comments
+// Gets one blog by req params
+// includes comments and user
+// Renders Page with all comments for that blog
 router.get("/blog/comments/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -144,6 +165,9 @@ router.get("/blog/comments/:id", withAuth, async (req, res) => {
   }
 });
 
+//Router to get one blog by req params
+//Include comments and user
+// Renders page with comment made by user
 router.get("/blogWithComment/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -170,5 +194,5 @@ router.get("/blogWithComment/:id", withAuth, async (req, res) => {
   }
 });
 
-
+// Export routers
 module.exports = router;

@@ -1,8 +1,12 @@
+//Import connection
 const sequelize = require("../config/connection");
+
+//Import seed function for User, blogs and comments
 const seedUser = require("./userData");
 const seedComment = require("./commentData");
 const seedBlog = require("./blogData");
 
+//Function to seed
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
@@ -15,4 +19,5 @@ const seedAll = async () => {
   process.exit(0);
 };
 
+//Call function
 seedAll();

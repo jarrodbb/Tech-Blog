@@ -1,9 +1,15 @@
+// API Routes for Blogs
+
 const router = require("express").Router();
 
 //Import Models
 const { User, Blog, Comments } = require("../../models");
+
+//Import authentication
 const withAuth = require("../../utils/auth");
 
+// Route to create Blog
+// Need to be logged in
 router.post("/", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.create({
@@ -23,6 +29,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// Route to Get Blog
 router.get("/", async (req, res) => {
   try {
     const blogData = await Blog.findAll({
@@ -39,6 +46,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Route to get a specific Blog by ID
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -55,11 +63,12 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Route to update Blog
+// Checks if logged in
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.update(
       {
-        // approved: req.body.approved,
         title: req.body.title,
         description: req.body.description,
         date: req.body.newDate,
@@ -77,6 +86,7 @@ router.put("/:id", withAuth, async (req, res) => {
     }
 
     req.session.save(() => {
+      // Save session as logged in
       req.session.logged_in = true;
 
       res.json({ message: "updated!" });
@@ -87,6 +97,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Router to delete Blog by ID
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const blogData = await Blog.destroy({
@@ -101,6 +112,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     }
 
     req.session.save(() => {
+      // Save session as logged in
       req.session.logged_in = true;
 
       res.json({ message: "deleted!" });
@@ -111,21 +123,5 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/comment/:id", withAuth, async (req, res) => {
-  try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["username"] }],
-    });
-    if (!blogData) {
-      res.status(404).json({ message: "No blog found !" });
-      return;
-    }
-
-    res.status(200).json(blogData);
-  } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
-  }
-});
-
+//Export routers
 module.exports = router;

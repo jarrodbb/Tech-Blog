@@ -7,10 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {{! tailwind }}
     <link
       href="https://fonts.googleapis.com/css2?family=Handjet:wght@600&family=Quicksand:wght@300;600&family=Tilt+Prism&display=swap"
       rel="stylesheet"
     />
+    {{! google font  }}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +32,7 @@
           <div
             class="max-w-screen-xl flex flex-wrap justify-between mx-auto p-4"
           >
-
+            {{! conditions if logged in  }}
             {{#if logged_in}}
               <a href="/">Home</a>
               |
@@ -38,6 +40,7 @@
               |
               <button class="no-button" id="logout">logout</button>
             {{else}}
+              {{! conditions if not logged in  }}
               <a href="/">Home</a>
               |
               <a href="/dashboard">Dashboard</a>
@@ -53,6 +56,7 @@
         {{{body}}}
       </main>
       {{#if logged_in}}
+      {{!-- js to handle log out  --}}
         <script src="/js/logout.js"></script>
       {{/if}}
       <footer>

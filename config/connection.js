@@ -1,9 +1,12 @@
+// Import Sequlize library
 const Sequelize = require('sequelize');
 
+// Import the dotenv library
 require('dotenv').config();
 
 let sequelize;
 
+//JAWSDB for using a remote database
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {

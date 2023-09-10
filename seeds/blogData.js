@@ -1,4 +1,5 @@
-// seed Users
+// seed Blog
+//Import model
 const { Blog } = require("../models");
 
 const blogData = [
@@ -17,7 +18,8 @@ const blogData = [
     user_id: 2,
   },
 ];
-
+//Create blogs
 const seedBlog = () => Blog.bulkCreate(blogData);
 
+//Export
 module.exports = seedBlog;

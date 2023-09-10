@@ -1,9 +1,13 @@
+//Import from sequelize
 const { Model, DataTypes } = require("sequelize");
 
+//Import connection
 const sequelize = require("../config/connection");
 
+//Create new model
 class Blog extends Model {}
 
+//Define Blog
 Blog.init(
   {
     blog_id: {
@@ -43,4 +47,5 @@ Blog.init(
   }
 );
 
+//Export Blog
 module.exports = Blog;

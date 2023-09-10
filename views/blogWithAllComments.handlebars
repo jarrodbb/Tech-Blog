@@ -5,6 +5,7 @@
   >The Tech Blog</a>
 </div>
 
+{{!-- Displays the Blogs information  --}}
 <div class="p-6">
   <div
     class="p-6 bg-fuchsia-100 border border-gray-200 rounded-lg shadow dark:border-gray-700"
@@ -28,6 +29,8 @@
 
   </div>
 </div>
+
+{{!-- Displays all comments  --}}
 
 {{#if comments.length}}
   {{#each comments as |comment|}}
@@ -60,6 +63,7 @@
   </div>
 {{/if}}
 
+{{!-- Button to add comment  --}}
 <div class="px-6">
   <a
     href="/comment-add/{{blog_id}}"

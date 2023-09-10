@@ -1,7 +1,11 @@
+//Import Models
 const User = require("./User");
 const Blog = require("./Blog");
 const Comments = require("./Comments");
 
+//Define realtionships
+//Define Foreign Keys
+//Define what to do when deleted
 Blog.belongsTo(User, {
   foreignKey: "user_id",
 });
@@ -30,4 +34,5 @@ Blog.hasMany(Comments, {
   onDelete: "SET NULL",
 });
 
+//Export relationships
 module.exports = { User, Blog, Comments };

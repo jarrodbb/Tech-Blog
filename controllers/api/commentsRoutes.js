@@ -1,9 +1,15 @@
+// Routers for comments
+
+// Import from express
 const router = require("express").Router();
 
 //Import Models
 const { Comments } = require("../../models");
+
+// Import Authentication
 const withAuth = require("../../utils/auth");
 
+//Router to create a comment
 router.post("/", withAuth, async (req, res) => {
   try {
     const commentData = await Comments.create({
@@ -15,6 +21,7 @@ router.post("/", withAuth, async (req, res) => {
     });
 
     req.session.save(() => {
+      // Save session as logged in
       req.session.logged_in = true;
 
       res.json(commentData);
@@ -25,6 +32,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// Router to get all comments
 router.get("/", async (req, res) => {
   try {
     const commentData = await Comments.findAll();
@@ -35,6 +43,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Router to delete a comment by ID
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const commentData = await Comments.destroy({
@@ -59,4 +68,5 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+//Export routers
 module.exports = router;

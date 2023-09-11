@@ -1,23 +1,23 @@
 // seed Users
 //Import model
-const { User } = require("../models");
+const { User } = require('../models');
 
 //User data
 const userData = [
   {
-    username: "techwiz",
+    username: 'techwiz',
 
-    password: "pass123",
+    password: 'pass123',
   },
   {
-    username: "bloglover",
+    username: 'bloglover',
 
-    password: "123456",
+    password: '123456',
   },
   {
-    username: "codechamp",
+    username: 'codechamp',
 
-    password: "password1",
+    password: 'password1',
   },
 ];
 

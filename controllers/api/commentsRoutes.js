@@ -1,16 +1,16 @@
 // Routers for comments
 
 // Import from express
-const router = require("express").Router();
+const router = require('express').Router();
 
 //Import Models
-const { Comments } = require("../../models");
+const { Comments } = require('../../models');
 
 // Import Authentication
-const withAuth = require("../../utils/auth");
+const withAuth = require('../../utils/auth');
 
 //Router to create a comment
-router.post("/", withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comments.create({
       comment_description: req.body.comment_description,
@@ -33,7 +33,7 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 // Router to get all comments
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const commentData = await Comments.findAll();
 
@@ -44,7 +44,7 @@ router.get("/", async (req, res) => {
 });
 
 //Router to delete a comment by ID
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comments.destroy({
       where: {
@@ -53,14 +53,14 @@ router.delete("/:id", withAuth, async (req, res) => {
     });
 
     if (!commentData) {
-      res.status(404).json({ message: "No blog found with this id!" });
+      res.status(404).json({ message: 'No blog found with this id!' });
       return;
     }
 
     req.session.save(() => {
       req.session.logged_in = true;
 
-      res.json({ message: "deleted!" });
+      res.json({ message: 'deleted!' });
     });
   } catch (err) {
     console.log(err);

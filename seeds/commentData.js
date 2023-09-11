@@ -1,6 +1,6 @@
 // seed Comments
 //Import model
-const { Comments } = require("../models");
+const { Comments } = require('../models');
 
 //This application proved more successful when no seed data was included for the comments
 const commentData = [

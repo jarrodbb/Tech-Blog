@@ -1,8 +1,8 @@
 //Import from sequelize
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require('sequelize');
 
 //Import connection
-const sequelize = require("../config/connection");
+const sequelize = require('../config/connection');
 
 //Create new model
 class Blog extends Model {}
@@ -33,8 +33,8 @@ Blog.init(
       type: DataTypes.INTEGER,
 
       references: {
-        model: "user",
-        key: "user_id",
+        model: 'user',
+        key: 'user_id',
       },
     },
   },
@@ -43,7 +43,7 @@ Blog.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "blog",
+    modelName: 'blog',
   }
 );
 

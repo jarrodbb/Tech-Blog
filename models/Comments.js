@@ -1,8 +1,8 @@
 //Import from sequelize
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require('sequelize');
 
 //Import connection
-const sequelize = require("../config/connection");
+const sequelize = require('../config/connection');
 
 //Create new model
 class Comments extends Model {}
@@ -19,7 +19,7 @@ Comments.init(
     comment_description: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "description",
+      defaultValue: 'description',
     },
     date: {
       type: DataTypes.DATEONLY,
@@ -32,15 +32,15 @@ Comments.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
-        key: "user_id",
+        model: 'user',
+        key: 'user_id',
       },
     },
     blog_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "blog",
-        key: "blog_id",
+        model: 'blog',
+        key: 'blog_id',
       },
     },
   },
@@ -49,7 +49,7 @@ Comments.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "comments",
+    modelName: 'comments',
   }
 );
 

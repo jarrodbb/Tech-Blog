@@ -1,11 +1,11 @@
 //Import from sequelize
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require('sequelize');
 
 //Import bcrypt for hashing passwords
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
 //Import connection
-const sequelize = require("../config/connection");
+const sequelize = require('../config/connection');
 
 //Create new model
 //Include method for checking passwords
@@ -58,7 +58,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "user",
+    modelName: 'user',
   }
 );
 
